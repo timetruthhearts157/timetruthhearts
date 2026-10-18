@@ -32,8 +32,8 @@ layout: default
     {% if item.title and item.url != page.url %}
       <li>
         <a class="page-link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
-        {% if item.last_modified_at %}
-          <span>Updated: {{ item.last_modified_at | date: "%b %d, %Y" }}</span>
+        {% if item.modified %}
+          <span>Updated: {{ item.modified | date: "%b %d, %Y" }}</span>
         {% endif %}
       </li>
     {% endif %}
