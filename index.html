@@ -25,13 +25,10 @@ layout: default
     {% assign sorted_pages = site.pages | sort: "last_modified_at" | reverse %}
    1
     {% for item in sorted_pages %}
-   2
-      {% if item.title and item.modified %}
         <li>3
           <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
           <span>Updated: {{ item.modified | date: "%b %d, %Y" }}</span>
         </li>
-      {% endif %}
     {% endfor %}
   </ul>
 
