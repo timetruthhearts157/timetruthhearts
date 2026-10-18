@@ -2,7 +2,7 @@
 layout: default
 ---
 <H1>Works in Progress</H1>
-
+<!--
 <ul>
   <li><b>Active</b>
     <ul>
@@ -17,4 +17,17 @@ layout: default
     </ul>
   </li>
 </ul>
+-->
+
+<ul class="toc-list">
+    {% assign sorted_pages = site.pages | sort: "last_modified_at" | reverse %}
+    {% for item in sorted_pages %}
+      {% if item.title and item.last_modified_at %}
+        <li>
+          <a class="page-link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+          <span class="modified-date">Updated: {{ item.last_modified_at | date: "%b %d, %Y" }}</span>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
 
