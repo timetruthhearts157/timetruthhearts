@@ -2,67 +2,20 @@
 layout: default
 ---
 
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }}</title>
-  <style>
-    body {
-      font-family: system-ui, -apple-system, sans-serif;
-      line-height: 1.6;
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-      color: #333;
-    }
-    h1 {
-      border-bottom: 2px solid #eee;
-      padding-bottom: 10px;
-    }
-    .toc-list {
-      list-style-type: none;
-      padding-left: 0;
-    }
-    .toc-list li {
-      padding: 8px 0;
-      border-bottom: 1px solid #f0f0f0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .page-link {
-      font-weight: 600;
-      color: #0366d6;
-      text-decoration: none;
-    }
-    .page-link:hover {
-      text-decoration: underline;
-    }
-    .modified-date {
-      font-size: 0.85em;
-      color: #666;
-      font-style: italic;
-    }
-  </style>
-</head>
-<body>
+<H1>Works in Progress</H1>
 
-  <h1>Site Directory</h1>
-  <p>Below is a list of updated resources across the site:</p>
-
-  <ul class="toc-list">
-    {% assign sorted_pages = site.pages | sort: "last_modified_at" | reverse %}
-    {% for item in sorted_pages %}
-      {% if item.title and item.last_modified_at %}
-        <li>
-          <a class="page-link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
-          <span class="modified-date">Updated: {{ item.last_modified_at | date: "%b %d, %Y" }}</span>
-        </li>
-      {% endif %}
-    {% endfor %}
-  </ul>
-
-</body>
-</html>
+<ul>
+  <li><b>Active</b>
+    <ul>
+      <li><a href="/tinydancer/tinydancer.html">Tiny Dancer</a></li>
+    </ul>
+  </li>
+  <li><b>Backburner</b>
+    <ul>
+      <li><a href="/chasingkites/chasingkites.html">Chasing Kites</a></li>
+      <li><a href="/intoxicated/intoxicated.html">Intoxicated</a></li>
+      <li><a href="/icandream/icandream.html">I Can Dream About You</a></li>
+    </ul>
+  </li>
+</ul>
 
