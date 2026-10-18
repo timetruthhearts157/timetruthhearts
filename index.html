@@ -22,13 +22,14 @@ layout: default
 <h1>Works in Progress</h1>
 
  <ul>
-    {% assign sorted_pages = site.pages | sort: "last_modified_at" | reverse %}
-   1
+    {% assign sorted_pages = site.pages | sort: "modified" | reverse %}
     {% for item in sorted_pages %}
-        <li>3
+      {% if item.title and item.modified %}
+        <li>
           <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
           <span>Updated: {{ item.modified | date: "%b %d, %Y" }}</span>
         </li>
+      {% endif %}
     {% endfor %}
   </ul>
 
