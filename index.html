@@ -22,26 +22,14 @@ layout: default
 <h1>Works in Progress</h1>
 
  <ul>
-  {% for item in site.pages %}
-    {% if item.title and item.url != page.url %}
-      <li>
-        <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
-        {% if item.modified %}
-          <ul class="toc-list">
-  {% for item in site.pages %}
-    {% if item.title and item.url != page.url %}
-      <li>
-        <a class="page-link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
-        {% if item.modified %}
+    {% assign sorted_pages = site.pages | sort: "last_modified_at" | reverse %}
+    {% for item in sorted_pages %}
+      {% if item.title and item.modified %}
+        <li>
+          <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
           <span>Updated: {{ item.modified | date: "%b %d, %Y" }}</span>
-        {% endif %}
-      </li>
-    {% endif %}
-  {% endfor %}
-</ul>Updated: {{ item.modified | date: "%b %d, %Y" }}</span>
-        {% endif %}
-      </li>
-    {% endif %}
-  {% endfor %}
-</ul>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
 
