@@ -15,3 +15,18 @@ layout: default
       {% endif %}
     {% endfor %}
   </ul>
+
+
+<h1>Ideas</h1>
+
+ <ul>
+    {% assign sorted_pages = site.pages | sort: "modified" | reverse %}
+    {% for item in sorted_pages %}
+      {% if item.title and item.modified and item.status == "idea" %}
+        <li>
+          <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+          <span>Updated: {{ item.modified | date: "%b %d, %Y" }} </span>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
